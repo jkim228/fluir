@@ -4,9 +4,9 @@ import { WordHighlight } from './WordHighlight'
  * Renders a passage as individually tappable word tokens.
  * Punctuation attached to words is preserved as non-tappable trailing text.
  *
- * @param {{ text: string, targetWord: string, onWordTap: (word: string) => void }} props
+ * @param {{ text: string, targetWord: string, selectedWord: string | null, onWordTap: (word: string, el: HTMLElement) => void }} props
  */
-export function PassageText({ text, targetWord, onWordTap }) {
+export function PassageText({ text, targetWord, selectedWord, onWordTap }) {
   const tokens = tokenize(text)
 
   return (
@@ -16,14 +16,15 @@ export function PassageText({ text, targetWord, onWordTap }) {
           return <span key={i}>{token.value}</span>
         }
 
-        const isTarget =
-          token.bare.toLowerCase() === targetWord.toLowerCase()
+        const isTarget = token.bare.toLowerCase() === targetWord.toLowerCase()
+        const isSelected = token.bare.toLowerCase() === selectedWord?.toLowerCase()
 
         return (
           <span key={i}>
             <WordHighlight
               word={token.bare}
               isTarget={isTarget}
+              isSelected={isSelected}
               onTap={onWordTap}
             />
             {token.punctuation}

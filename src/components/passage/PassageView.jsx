@@ -1,5 +1,8 @@
+import { useState } from 'react'
 import { CheckIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
 import { PassageText } from './PassageText'
+import { TranslationPopover } from './TranslationPopover'
+import { getTranslation } from '../../lib/translations'
 
 /**
  * The main passage card — full white surface with centered passage text.
@@ -12,6 +15,27 @@ import { PassageText } from './PassageText'
  * }} props
  */
 export function PassageView({ passage, onWordTap, onMarkLearned, onRecycle }) {
+  const [selectedWord, setSelectedWord] = useState(null)
+  const [anchorEl, setAnchorEl] = useState(null)
+
+  function handleWordTap(word, el) {
+    if (word === selectedWord) {
+      setSelectedWord(null)
+      setAnchorEl(null)
+    } else {
+      setSelectedWord(word)
+      setAnchorEl(el)
+      onWordTap(word)
+    }
+  }
+
+  function handleDismiss() {
+    setSelectedWord(null)
+    setAnchorEl(null)
+  }
+
+  const translation = selectedWord ? getTranslation(selectedWord) : null
+
   return (
     <div className="flex flex-col items-center gap-8">
       {/* Passage card */}
@@ -19,7 +43,8 @@ export function PassageView({ passage, onWordTap, onMarkLearned, onRecycle }) {
         <PassageText
           text={passage.text}
           targetWord={passage.targetWord}
-          onWordTap={onWordTap}
+          selectedWord={selectedWord}
+          onWordTap={handleWordTap}
         />
       </div>
 
@@ -37,6 +62,16 @@ export function PassageView({ passage, onWordTap, onMarkLearned, onRecycle }) {
         />
         <ActionButton icon={<ArrowPathIcon className="w-4 h-4" style={{ strokeWidth: 2 }} />} label="REGENERATE" onClick={onRecycle} />
       </div>
+
+      {selectedWord && anchorEl && (
+        <TranslationPopover
+          word={selectedWord}
+          translation={translation?.translation ?? null}
+          example={translation?.example ?? null}
+          anchorEl={anchorEl}
+          onDismiss={handleDismiss}
+        />
+      )}
     </div>
   )
 }
@@ -73,4 +108,3 @@ function EyeIcon() {
     </svg>
   )
 }
-

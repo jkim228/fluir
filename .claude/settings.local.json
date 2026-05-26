@@ -4,7 +4,8 @@
       "Bash(npm install:*)",
       "Bash(npm run:*)",
       "Bash(gh auth:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(npm test *)"
     ]
   }
 }
