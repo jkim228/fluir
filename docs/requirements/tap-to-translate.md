@@ -15,6 +15,7 @@ As a learner, I want to tap any word in a passage to quickly understand its mean
   - `TranslationPopover` renders fixed-positioned above the tapped element, managed in `PassageView`
 - [x] Tapped word shows a highlighted state (dark green text, light green background)
   - `isSelected` prop on `WordHighlight` applies `text-moss-dim bg-moss-pale`
+- [ ] Target word is NOT pre-highlighted when the passage first loads — all words appear with equal visual weight until tapped
 
 ### Popover Content
 - [x] Popover displays the tapped word in Portuguese

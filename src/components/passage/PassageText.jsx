@@ -16,14 +16,12 @@ export function PassageText({ text, targetWord, selectedWord, onWordTap }) {
           return <span key={i}>{token.value}</span>
         }
 
-        const isTarget = token.bare.toLowerCase() === targetWord.toLowerCase()
         const isSelected = token.bare.toLowerCase() === selectedWord?.toLowerCase()
 
         return (
           <span key={i}>
             <WordHighlight
               word={token.bare}
-              isTarget={isTarget}
               isSelected={isSelected}
               onTap={onWordTap}
             />

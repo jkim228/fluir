@@ -18,6 +18,7 @@ export default {
         rose: '#C45A5A',
         'rose-pale': '#FAE8E8',
         ink: '#1C1B17',
+        'ink-80': 'rgba(28,27,23,0.75)',
         'ink-60': 'rgba(28,27,23,0.55)',
         'ink-30': 'rgba(28,27,23,0.30)',
       },

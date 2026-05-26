@@ -5,7 +5,7 @@ import { cn } from '../../lib/utils'
  *
  * @param {{ word: string, isTarget: boolean, isSelected: boolean, onTap: (word: string, el: HTMLElement) => void }} props
  */
-export function WordHighlight({ word, isTarget, isSelected, onTap }) {
+export function WordHighlight({ word, isSelected, onTap }) {
   function handleClick(e) {
     onTap(word, e.currentTarget)
   }
@@ -18,11 +18,7 @@ export function WordHighlight({ word, isTarget, isSelected, onTap }) {
       onKeyDown={(e) => e.key === 'Enter' && handleClick(e)}
       className={cn(
         'cursor-pointer rounded-xs px-0.5 -mx-0.5 transition-colors duration-100',
-        isSelected
-          ? 'text-moss-dim bg-moss-pale'
-          : isTarget
-          ? 'text-moss-dim font-semibold'
-          : 'hover:bg-surface-2',
+        isSelected ? 'text-moss-dim bg-moss-pale' : 'hover:bg-surface-2',
       )}
     >
       {word}
