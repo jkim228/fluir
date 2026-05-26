@@ -13,13 +13,13 @@ const NAV_ITEMS = [
  */
 export function BottomNav({ activeView, onNavigate }) {
   return (
-    <nav className="flex justify-around bg-surface border-t border-[rgba(30,28,20,0.08)] px-2 py-2">
+    <nav className="flex justify-center gap-2 bg-surface border-t border-[rgba(30,28,20,0.08)] px-2 py-2">
       {NAV_ITEMS.map(({ id, label, icon }) => (
         <button
           key={id}
           onClick={() => onNavigate(id)}
           className={cn(
-            'flex flex-col items-center gap-0.5 px-5 py-2.5 rounded-xl font-body text-[0.6rem] font-medium tracking-[0.06em] uppercase transition-all',
+            'flex flex-col items-center gap-0.5 px-5 py-2.5 rounded-lg font-body text-[0.6rem] font-medium tracking-[0.06em] uppercase transition-all',
             activeView === id
               ? 'bg-moss-pale text-moss-dim border border-[rgba(90,148,88,0.18)]'
               : 'text-[rgba(28,27,23,0.30)] hover:text-ink',
