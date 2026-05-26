@@ -1,3 +1,4 @@
+import { CheckIcon, ArrowPathIcon } from '@heroicons/react/24/outline'
 import { PassageText } from './PassageText'
 
 /**
@@ -26,11 +27,15 @@ export function PassageView({ passage, onWordTap, onMarkLearned, onRecycle }) {
       <div className="flex items-center gap-8">
         <ActionButton icon={<EyeIcon />} label="REVEAL" onClick={() => {}} />
         <PrimaryActionButton
-          icon={<CheckIcon />}
+          icon={
+            <span className="flex items-center justify-center w-5 h-5 rounded-full bg-moss-dim">
+              <CheckIcon className="w-3.5 h-3.5 text-moss-pale" style={{ strokeWidth: 3.5 }} />
+            </span>
+          }
           label="MARK AS LEARNED"
           onClick={onMarkLearned}
         />
-        <ActionButton icon={<RecycleIcon />} label="REVEAL" onClick={onRecycle} />
+        <ActionButton icon={<ArrowPathIcon className="w-4 h-4" style={{ strokeWidth: 2 }} />} label="REGENERATE" onClick={onRecycle} />
       </div>
     </div>
   )
@@ -40,7 +45,7 @@ function ActionButton({ icon, label, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="flex items-center gap-1.5 font-body text-[0.6rem] font-medium tracking-[0.12em] uppercase text-[rgba(28,27,23,0.55)] hover:text-ink transition-colors"
+      className="flex items-center gap-1.5 font-body text-[0.6rem] font-medium tracking-[0.12em] uppercase text-[rgba(28,27,23,0.55)] hover:text-moss-dim transition-colors"
     >
       {icon}
       {label}
@@ -69,20 +74,3 @@ function EyeIcon() {
   )
 }
 
-function CheckIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10" fill="currentColor" stroke="none" opacity="0.15" />
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  )
-}
-
-function RecycleIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <polyline points="1 4 1 10 7 10" />
-      <path d="M3.51 15a9 9 0 1 0 .49-3.51" />
-    </svg>
-  )
-}
