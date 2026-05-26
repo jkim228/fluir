@@ -14,7 +14,7 @@ export function PassageView({ passage, onWordTap, onMarkLearned, onRecycle }) {
   return (
     <div className="flex flex-col items-center gap-8">
       {/* Passage card */}
-      <div className="w-full bg-surface rounded-xl shadow-card border border-[rgba(30,28,20,0.08)] px-10 py-16 flex items-center justify-center min-h-[360px]">
+      <div className="w-full bg-surface rounded-xl shadow-card border border-[rgba(30,28,20,0.08)] px-24 py-24 flex items-center justify-center min-h-[360px]">
         <PassageText
           text={passage.text}
           targetWord={passage.targetWord}

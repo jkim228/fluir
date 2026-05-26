@@ -19,7 +19,7 @@ export default function ReadingView({ targetWord, onWordTap, onMarkLearned }) {
   }
 
   return (
-    <div className="flex-1 px-5 py-6 flex flex-col justify-center">
+    <div className="flex-1 px-10 pt-10 pb-6 flex flex-col">
       <PassageView
         passage={passage}
         onWordTap={onWordTap}

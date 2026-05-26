@@ -19,20 +19,22 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-bg flex flex-col max-w-lg mx-auto">
+    <div className="min-h-screen bg-bg flex flex-col">
       <Header />
 
       <main className="flex-1 flex flex-col">
-        {activeView === 'read' && (
-          <ReadingView
-            targetWord={targetWord}
-            onWordTap={handleWordTap}
-            onMarkLearned={handleMarkLearned}
-          />
-        )}
+        <div className="max-w-4xl mx-auto w-full flex-1 flex flex-col">
+          {activeView === 'read' && (
+            <ReadingView
+              targetWord={targetWord}
+              onWordTap={handleWordTap}
+              onMarkLearned={handleMarkLearned}
+            />
+          )}
+        </div>
       </main>
 
-      <footer className="px-5 pb-8 pt-2">
+      <footer>
         <BottomNav activeView={activeView} onNavigate={setActiveView} />
       </footer>
     </div>

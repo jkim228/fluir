@@ -10,7 +10,7 @@ export function PassageText({ text, targetWord, onWordTap }) {
   const tokens = tokenize(text)
 
   return (
-    <p className="font-display text-[2rem] font-semibold leading-snug text-ink text-center">
+    <p className="font-body text-[2rem] font-semibold leading-snug text-ink text-center">
       {tokens.map((token, i) => {
         if (token.type === 'space') {
           return <span key={i}>{token.value}</span>

@@ -13,7 +13,7 @@ const NAV_ITEMS = [
  */
 export function BottomNav({ activeView, onNavigate }) {
   return (
-    <nav className="flex justify-around bg-surface border border-[rgba(30,28,20,0.08)] rounded-[28px] px-1.5 py-1.5 shadow-elevated">
+    <nav className="flex justify-around bg-surface border-t border-[rgba(30,28,20,0.08)] px-2 py-2">
       {NAV_ITEMS.map(({ id, label, icon }) => (
         <button
           key={id}
